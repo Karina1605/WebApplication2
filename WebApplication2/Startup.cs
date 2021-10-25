@@ -41,6 +41,7 @@ namespace WebApplication2
             services.AddScoped<IRepository<RealEstate>, Repository<RealEstate>>();
 
             services.AddScoped<IBargainTypeService, BargainTypeService>();
+            services.AddScoped<IContractService, ContractService>();
             
 
         }
@@ -69,7 +70,7 @@ namespace WebApplication2
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Contract}/{action=CreateNewContract}/{id?}");
             });
         }
     }

@@ -1,0 +1,35 @@
+﻿@model Domain.Entities.Contract
+@{
+    
+}
+<form asp-action="CreateContract">
+    <div>
+        <label asp-for="@Model.BargainCost">Bargain cost</label>
+        <input asp-for="@Model.BargainCost" />
+    </div>
+
+    <div>
+        
+        <label asp-for="@Model.BargainTypeId">Bargain type</label>
+        <input asp-for="@Model.BargainTypeId" />
+    </div>
+    <div>
+        <label asp-for="@Model.ClientId"></label>
+        <input asp-for="@Model.ClientId" />
+    </div>
+    <div>
+        <label asp-for="@Model.SignDate"></label>
+        <input asp-for="@Model.SignDate" />
+    </div>
+    <div>
+        <label asp-for="@Model.FinishDate"></label>
+        <input asp-for="@Model.FinishDate" />
+    </div>
+
+    <div>
+        <label asp-for="@Model.RealEstateId"></label>
+        <input asp-for="@Model.RealEstateId" />
+    </div>
+    <input type="submit" />
+</form>
+

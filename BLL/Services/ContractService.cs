@@ -1,5 +1,6 @@
 ﻿using BLL.Interfaces;
 using Domain.Entities;
+using Domain.RepositoryInterfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -10,9 +11,15 @@ namespace BLL.Services
 {
     public class ContractService : IContractService
     {
+        private readonly IRepository<Contract> _repo;
+
+        public ContractService(IRepository<Contract> repository)
+        {
+            _repo = repository;
+        }
         public Task Contract(Contract contract)
         {
-            throw new NotImplementedException();
+            return _repo.CreateAsync(contract);
         }
 
         public Task<Contract> DeleteContract(int contractId)

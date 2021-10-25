@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using DAL.Mappers;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -25,5 +26,10 @@ namespace DAL
             Database.EnsureCreated();
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new ClientTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new BargainTypeConfiguration());
+        }
     }
 }

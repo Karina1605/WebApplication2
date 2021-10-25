@@ -17,17 +17,17 @@ namespace DAL.Repositories
 
         public override async Task<ICollection<Client>> GetAllAsync()
         {
-            return await Context.Clients.Include(e => e.ClientType).ToListAsync();
+            return await Context.Clients.Include(e => e.ClientTypes).ToListAsync();
         }
 
         public override async Task<ICollection<Client>> GetByFilterAsync(Expression<Func<Client, bool>> expression)
         {
-            return await Context.Clients.Where(expression).Include(e => e.ClientType).ToListAsync();
+            return await Context.Clients.Where(expression).Include(e => e.ClientTypes).Include(e => e.ClientTypes).ToListAsync();
         }
 
         public override async Task<Client> GetByIdAsync(int id)
         {
-            return await Context.Clients.Include(e => e.ClientType).FirstOrDefaultAsync(e => e.Id == id);
+            return await Context.Clients.Include(e => e.ClientTypes).FirstOrDefaultAsync(e => e.Id == id);
         }
     }
 }

@@ -21,7 +21,7 @@ namespace DAL.Repositories
                 .Include(e => e.BargainType)
                 .Include(e => e.Employee)
                 .Include(e => e.RealEstate)
-                .Include(e => e.Client).ThenInclude(e => e.ClientType)
+                .Include(e => e.Client).ThenInclude(e => e.ClientTypes)
                 .ToListAsync();
         }
 
@@ -30,8 +30,8 @@ namespace DAL.Repositories
             return await Context.Contracts.Where(expression).Include(e => e.BargainType)
                 .Include(e => e.Employee)
                 .Include(e => e.RealEstate)
-                .Include(e => e.Client).ThenInclude(e => e.ClientType)
-                .ToListAsync(); ;
+                .Include(e => e.Client).ThenInclude(e => e.ClientTypes)
+                .ToListAsync();
         }
 
         public override async Task<Contract> GetByIdAsync(int id)
@@ -39,7 +39,7 @@ namespace DAL.Repositories
             return await Context.Contracts.Include(e => e.BargainType)
                 .Include(e => e.Employee)
                 .Include(e => e.RealEstate)
-                .Include(e => e.Client).ThenInclude(e => e.ClientType)
+                .Include(e => e.Client).ThenInclude(e => e.ClientTypes)
                 .FirstOrDefaultAsync(e => e.Id == id);
         }
     }
