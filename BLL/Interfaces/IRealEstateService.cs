@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BLL.Interfaces
 {
-    interface IRealEstateService
+    public interface IRealEstateService
     {
         public Task AddRealEstate(RealEstate realEstate);
 

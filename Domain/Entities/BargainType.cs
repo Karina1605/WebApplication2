@@ -7,5 +7,7 @@ namespace Domain.Entities
     public class BargainType : BaseEntity
     {
         public string Name { get; set; }
+
+        ICollection<Contract> Contracts { get; set; }
     }
 }

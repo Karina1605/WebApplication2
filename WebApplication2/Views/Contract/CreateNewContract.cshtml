@@ -1,34 +1,34 @@
-﻿@model Domain.Entities.Contract
+﻿@model CreateNewContractModel
 @{
     
 }
 <form asp-action="CreateContract">
     <div>
-        <label asp-for="@Model.BargainCost">Bargain cost</label>
-        <input asp-for="@Model.BargainCost" />
+        <label asp-for="@Model.Contract.BargainCost">Bargain cost</label>
+        <input asp-for="@Model.Contract.BargainCost" />
     </div>
 
     <div>
         
-        <label asp-for="@Model.BargainTypeId">Bargain type</label>
-        <input asp-for="@Model.BargainTypeId" />
+        <label asp-for="@Model.Contract.BargainTypeId">Bargain type</label>
+        @Html.DropDownListFor(e => e.Contract.BargainTypeId, Model.BargainTypes)
     </div>
     <div>
-        <label asp-for="@Model.ClientId"></label>
-        <input asp-for="@Model.ClientId" />
+        <label asp-for="@Model.Contract.ClientId"></label>
+        @Html.DropDownListFor(e => e.Contract.ClientId, Model.Clients)
     </div>
     <div>
-        <label asp-for="@Model.SignDate"></label>
-        <input asp-for="@Model.SignDate" />
+        <label asp-for="@Model.Contract.SignDate"></label>
+        <input asp-for="@Model.Contract.SignDate" />
     </div>
     <div>
-        <label asp-for="@Model.FinishDate"></label>
-        <input asp-for="@Model.FinishDate" />
+        <label asp-for="@Model.Contract.FinishDate"></label>
+        <input asp-for="@Model.Contract.FinishDate" />
     </div>
 
     <div>
-        <label asp-for="@Model.RealEstateId"></label>
-        <input asp-for="@Model.RealEstateId" />
+        <label asp-for="@Model.Contract.RealEstateId"></label>
+        @Html.DropDownListFor(e => e.Contract.RealEstateId, Model.RealEstates)
     </div>
     <input type="submit" />
 </form>

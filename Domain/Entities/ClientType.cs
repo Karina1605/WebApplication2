@@ -7,5 +7,7 @@ namespace Domain.Entities
     public class ClientType : BaseEntity
     {
         public string Name { get; set; }
+
+        public ICollection<Client> Clients { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using BLL.Filters;
+using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -15,7 +16,7 @@ namespace BLL.Interfaces
 
         public Task<Contract> GetContractById(int cobtractId);
 
-        public Task<ICollection<Contract>> GetContractByFilter(Expression<Func<Contract, bool>> expression);
+        public Task<ICollection<Contract>> GetContractByDate(ContractFilter expression);
 
         public Task<Contract> DeleteContract(int contractId);
 

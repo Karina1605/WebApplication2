@@ -1,5 +1,6 @@
 ﻿using BLL.Interfaces;
 using Domain.Entities;
+using Domain.RepositoryInterfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -10,6 +11,13 @@ namespace BLL.Services
 {
     public class ClientService : IClientService
     {
+        private readonly IRepository<Client> _repository;
+
+        public ClientService(IRepository<Client> repository)
+        {
+            _repository = repository;
+        }
+
         public Task AddClient(Client client)
         {
             throw new NotImplementedException();
@@ -22,7 +30,7 @@ namespace BLL.Services
 
         public Task<ICollection<Client>> GetAllClients()
         {
-            throw new NotImplementedException();
+            return _repository.GetAllAsync();
         }
 
         public Task<ICollection<Client>> GetClientByFilter(Expression<Func<Client, bool>> expression)

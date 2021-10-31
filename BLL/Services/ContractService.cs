@@ -1,4 +1,5 @@
-﻿using BLL.Interfaces;
+﻿using BLL.Filters;
+using BLL.Interfaces;
 using Domain.Entities;
 using Domain.RepositoryInterfaces;
 using System;
@@ -22,14 +23,19 @@ namespace BLL.Services
             return _repo.CreateAsync(contract);
         }
 
-        public Task<Contract> DeleteContract(int contractId)
+        public async Task<Contract> DeleteContract(int contractId)
         {
-            throw new NotImplementedException();
+            return await _repo.DeleteItemAsync(contractId);
         }
 
         public Task<ICollection<Contract>> GetAllContracts()
         {
-            throw new NotImplementedException();
+            return _repo.GetAllAsync();
+        }
+
+        public async Task<ICollection<Contract>> GetContractByDate(ContractFilter expression)
+        {
+            return await _repo.GetByFilterAsync(e => e.SignDate >= expression.Oldest && e.SignDate <= expression.Latest);
         }
 
         public Task<ICollection<Contract>> GetContractByFilter(Expression<Func<Contract, bool>> expression)

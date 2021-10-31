@@ -1,0 +1,13 @@
+﻿@model BLL.Filters.ContractFilter;
+
+<form asp-action="sohsuo">
+    <div>
+        <label asp-for="@Model.Oldest"></label>
+        <input asp-for="@Model.Oldest" />
+    </div>
+    <div>
+        <label asp-for="@Model.Latest"></label>
+        <input asp-for="@Model.Latest" />
+    </div>
+    <input type="submit"  value="Search"/>
+</form>

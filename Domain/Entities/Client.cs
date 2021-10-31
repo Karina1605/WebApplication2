@@ -6,10 +6,10 @@ namespace Domain.Entities
 {
     public class Client : BaseEntity
     {
-        public int ClientTypeId { get; set; }
-
-        public ClientType ClientType { get; set; }
-
+        public Client()
+        {
+            ClientTypes = new List<ClientType>();
+        }
         public string FIO { get; set; }
 
         public string Address { get; set; }
@@ -17,5 +17,7 @@ namespace Domain.Entities
         public string Phone { get; set; }
 
         public string Password { get; set; }
+
+        public ICollection<ClientType> ClientTypes { get; set; }
     }
 }

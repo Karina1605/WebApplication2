@@ -13,5 +13,7 @@ namespace Domain.Entities
         public string Address { get; set; }
 
         public string Description { get; set; }
+
+        ICollection<Contract> Contracts { get; set; }
     }
 }

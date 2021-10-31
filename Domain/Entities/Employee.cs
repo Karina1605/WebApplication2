@@ -13,5 +13,7 @@ namespace Domain.Entities
         public string Phone { get; set; }
 
         public DateTime HiringDate { get; set; }
+
+        ICollection<Contract> Contracts { get; set; }
     }
 }

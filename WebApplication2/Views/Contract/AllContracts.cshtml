@@ -1,0 +1,20 @@
+﻿@model ICollection<Domain.Entities.Contract>
+
+@Html.ActionLink("Create", "CreateNewContract")
+<partial name="_ContractFilter" model="new BLL.Filters.ContractFilter()" />
+<table>
+    <tr>
+        <th>Id</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Id
+            </td>
+            <td>
+                @Html.ActionLink("Remove", "Delete", new {id =item.Id })
+            </td>
+        </tr>
+    }
+</table>
