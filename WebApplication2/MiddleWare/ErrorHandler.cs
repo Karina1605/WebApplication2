@@ -15,13 +15,20 @@ namespace WebApplication2.MiddleWare
             this._next = next;
         }
 
-        public async Task InvokeAsync(HttpContext context) 
+        public async Task Invoke(HttpContext context) 
         {
-            await _next(context);
-
-            if (context.Response.StatusCode > 400)
+            try
             {
-                context.Response.Redirect("~/Home/Error");
+                await _next(context);
+
+                if (context.Response.StatusCode > 400)
+                {
+                    context.Response.Redirect("/Home/Error");
+                }
+            }
+            catch(Exception e)
+            {
+                context.Response.Redirect("/Home/Error");
             }
         }
     }
